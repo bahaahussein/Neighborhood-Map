@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Neighborhood map</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container">
+		<div class="options-box">
+			<div>
+				<input id="search-text" type="text" placeholder="Enter words to search about" data-bind="textInput: searchText">
+				<input id="search" type="button" value="search" data-bind="click: search">
+				<input id="cancel" type="button" value="cancel" data-bind="click: cancel">
+			</div>
+			<ul data-bind="foreach: locationsList">
+				<li data-bind="text: title, click: $parent.itemClicked"></li>
+			</ul>
+		</div>
+		<div id="map"></div>
+	</div>
+	<script src="js/lib/jquery.min.js"></script>
+	<script src="js/lib/knockout-3.4.2.js"></script>
+    <script src="js/app.js"></script>
+	<script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFOGFIKRAynMRL_0q6B3AsZIHk-kDVN2I&v=3&callback=initMap"
+		onerror="error()">
+    </script>
+</body>
+</html>
